@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://main.gd" type="Script" id=1]
+[ext_resource path="res://owo/owo.tscn" type="PackedScene" id=2]
+[ext_resource path="res://user_interface/menu.tscn" type="PackedScene" id=3]
+
+[node name="Main" type="Node"]
+script = ExtResource( 1 )
+owo_scene = ExtResource( 2 )
+owo_area = Rect2( 0, 0, 1024, 600 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+
+[node name="Menu" parent="." instance=ExtResource( 3 )]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="AddButton" parent="Menu/HBoxContainer" index="0"]
+margin_right = 510.0
+
+[node name="RemoveButton" parent="Menu/HBoxContainer" index="1"]
+margin_left = 514.0
+margin_right = 1024.0
+
+[connection signal="button_up" from="Menu/HBoxContainer/AddButton" to="." method="_on_AddButton_button_up"]
+[connection signal="button_up" from="Menu/HBoxContainer/RemoveButton" to="." method="_on_RemoveButton_button_up"]
+
+[editable path="Menu"]

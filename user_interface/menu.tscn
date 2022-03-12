@@ -1,0 +1,30 @@
+[gd_scene format=2]
+
+[node name="Menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="AddButton" type="Button" parent="HBoxContainer"]
+margin_right = 510.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+text = "Add"
+
+[node name="RemoveButton" type="Button" parent="HBoxContainer"]
+margin_left = 514.0
+margin_right = 1024.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+disabled = true
+text = "Remove"
+
+[connection signal="button_up" from="HBoxContainer/AddButton" to="." method="_on_AddButton_button_up"]
+[connection signal="button_up" from="HBoxContainer/RemoveButton" to="." method="_on_RemoveButton_button_up"]
