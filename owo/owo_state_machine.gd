@@ -4,13 +4,15 @@ onready var idle = $Idle
 onready var move = $Move
 onready var sleep = $Sleep
 onready var pet = $Pet
+onready var play = $Play
 
 func _ready() -> void:
 	states_map = {
 		"idle": idle,
 		"move": move,
 		"sleep": sleep,
-		"pet": pet
+		"pet": pet,
+		"play": play
 	}
 
 
