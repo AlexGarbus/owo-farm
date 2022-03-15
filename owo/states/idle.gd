@@ -12,7 +12,7 @@ func enter() -> void:
 
 func update(delta: float) -> void:
 	if randi() % move_chance == 0:
-		emit_signal("finished", "move")
+		emit_signal("finished", "wander")
 	elif randi() % sleep_chance == 0:
 		emit_signal("finished", "sleep")
 	elif _owo_detector.get_overlapping_areas().size() > 1 and randi() % play_chance == 0:

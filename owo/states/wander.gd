@@ -1,6 +1,6 @@
 extends OwOState
 
-export var walk_speed: float = 25
+export var move_speed: float = 25
 var target: Vector2
 
 
@@ -11,6 +11,6 @@ func enter() -> void:
 
 
 func update(delta: float) -> void:
-	owo.position = owo.position.move_toward(target, walk_speed * delta)
+	owo.position = owo.position.move_toward(target, move_speed * delta)
 	if owo.position == target:
 		emit_signal("finished", "idle")

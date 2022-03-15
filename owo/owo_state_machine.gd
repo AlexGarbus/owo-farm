@@ -1,7 +1,7 @@
 extends StateMachine
 
 onready var idle = $Idle
-onready var move = $Move
+onready var wander = $Wander
 onready var sleep = $Sleep
 onready var pet = $Pet
 onready var play = $Play
@@ -9,7 +9,7 @@ onready var play = $Play
 func _ready() -> void:
 	states_map = {
 		"idle": idle,
-		"move": move,
+		"wander": wander,
 		"sleep": sleep,
 		"pet": pet,
 		"play": play
