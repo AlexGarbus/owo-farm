@@ -26,6 +26,3 @@ margin_bottom = 20.0
 size_flags_horizontal = 3
 disabled = true
 text = "Remove"
-
-[connection signal="button_up" from="HBoxContainer/AddButton" to="." method="_on_AddButton_button_up"]
-[connection signal="button_up" from="HBoxContainer/RemoveButton" to="." method="_on_RemoveButton_button_up"]

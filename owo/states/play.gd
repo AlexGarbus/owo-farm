@@ -14,6 +14,10 @@ func enter() -> void:
 	_target.connect("tree_exited", self, "_on_target_tree_exited")
 
 
+func exit() -> void:
+	_target.disconnect("tree_exited", self, "_on_target_tree_exited")
+
+
 func update(delta: float) -> void:
 	_follow_target(delta)
 	if randi() % exit_chance == 0:
