@@ -25,5 +25,11 @@ func _change_state(state_name: String) -> void:
 
 
 func _on_OwO_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	if current_state != states_map["pet"] and event is InputEventMouseButton and event.is_pressed():
+	if current_state == states_map["pet"]:
+		current_state.on_OwO_input_event(viewport, event, shape_idx)
+	elif event is InputEventMouseButton and event.is_pressed():
 		_change_state("pet")
+
+
+func _on_OwO_mouse_exited() -> void:
+	current_state.on_OwO_mouse_exited()
