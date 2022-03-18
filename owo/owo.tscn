@@ -58,6 +58,10 @@ min_target_distance = 25.0
 [node name="PetTimer" type="Timer" parent="."]
 one_shot = true
 
+[node name="PlaySmileTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
 [node name="OwODetector" type="Area2D" parent="."]
 collision_layer = 0
 
@@ -67,3 +71,4 @@ shape = SubResource( 2 )
 [connection signal="input_event" from="." to="StateMachine" method="_on_OwO_input_event"]
 [connection signal="mouse_exited" from="." to="StateMachine" method="_on_OwO_mouse_exited"]
 [connection signal="timeout" from="PetTimer" to="StateMachine/Pet" method="_on_PetTimer_timeout"]
+[connection signal="timeout" from="PlaySmileTimer" to="StateMachine/Play" method="_on_PlaySmileTimer_timeout"]

@@ -4,6 +4,7 @@ export var move_speed: float = 25
 export var min_target_distance: float = 10
 export var exit_chance: int = 500
 onready var _owo_detector: Area2D = get_node("../../OwODetector")
+onready var _play_smile_timer: Timer = get_node("../../PlaySmileTimer")
 var _is_following: bool = false
 var _target: OwO
 
@@ -16,6 +17,7 @@ func enter() -> void:
 
 func exit() -> void:
 	_target.disconnect("tree_exited", self, "_on_target_tree_exited")
+	_play_smile_timer.stop()
 
 
 func update(delta: float) -> void:
@@ -37,11 +39,17 @@ func _on_target_tree_exited() -> void:
 
 
 func _follow_target(delta: float) -> void:
+	var target_distance := owo.position.distance_to(_target.position)
 	if _is_following:
 		owo.position = owo.position.move_toward(_target.position, move_speed * delta)
-		if owo.position.distance_to(_target.position) <= min_target_distance:
+		if target_distance <= min_target_distance:
 			_is_following = false
 			owo.set_text("^w^")
-	elif owo.position.distance_to(_target.position) > min_target_distance:
+			_play_smile_timer.stop()
+	elif target_distance > min_target_distance:
 		_is_following = true
-		owo.set_text("OwO")
+		_play_smile_timer.start()
+
+
+func _on_PlaySmileTimer_timeout() -> void:
+	owo.set_text("OwO")
