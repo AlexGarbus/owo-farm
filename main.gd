@@ -3,9 +3,14 @@ extends Node
 export(PackedScene) var owo_scene
 export var owo_area: Rect2
 export var max_owos: int = 25
-onready var _addButton = $Menu/HBoxContainer/AddButton
-onready var _removeButton = $Menu/HBoxContainer/RemoveButton
+onready var _total_label: Label = $Menu/Panel/TotalLabel
+onready var _add_button: Button = $Menu/HBoxContainer/AddButton
+onready var _remove_button: Button = $Menu/HBoxContainer/RemoveButton
 var _owos = []
+
+
+func _ready() -> void:
+	_set_total_label_text()
 
 
 func add_owo() -> void:
@@ -35,13 +40,19 @@ func set_random_owo_position(owo: OwO) -> void:
 
 func _on_AddButton_button_up() -> void:
 	add_owo()
-	_removeButton.disabled = false
+	_set_total_label_text()
+	_remove_button.disabled = false
 	if _owos.size() == max_owos:
-		_addButton.disabled = true
+		_add_button.disabled = true
 
 
 func _on_RemoveButton_button_up() -> void:
 	remove_owo()
-	_addButton.disabled = false
+	_set_total_label_text()
+	_add_button.disabled = false
 	if _owos.size() == 0:
-		_removeButton.disabled = true
+		_remove_button.disabled = true
+
+
+func _set_total_label_text() -> void:
+	_total_label.text = "Total: %s/%s" % [_owos.size(), max_owos]

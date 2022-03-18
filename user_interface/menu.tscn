@@ -5,6 +5,24 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 
+[node name="Panel" type="Panel" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -45.0
+margin_bottom = -25.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
+
+[node name="TotalLabel" type="Label" parent="Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+text = "Total: %s/%s"
+align = 1
+valign = 1
+
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 anchor_top = 1.0
 anchor_right = 1.0
