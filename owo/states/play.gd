@@ -44,9 +44,10 @@ func _follow_target(delta: float) -> void:
 		owo.position = owo.position.move_toward(_target.position, move_speed * delta)
 		if target_distance <= min_target_distance:
 			_is_following = false
-			owo.set_text("^w^")
 			_play_smile_timer.stop()
-			owo.play_sound()
+			if not owo.get_text() == "^w^":
+				owo.set_text("^w^")
+				owo.play_sound()
 	elif target_distance > min_target_distance:
 		_is_following = true
 		_play_smile_timer.start()
