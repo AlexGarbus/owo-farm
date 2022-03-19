@@ -7,6 +7,7 @@ var _previous_text: String
 func enter() -> void:
 	_previous_text = owo.get_text()
 	owo.set_text("UwU")
+	owo.play_sound()
 
 
 func exit() -> void:
